@@ -1,0 +1,90 @@
+Transform: AWS::Serverless-2016-10-31
+Parameters:
+  EnvironmentName:
+    Type: String
+    Default: dev
+    Description: Environment name for resource naming
+
+Resources:
+  LambdaExecutionRole:
+    Type: AWS::IAM::Role
+    Properties:
+      AssumeRolePolicyDocument:
+        Version: '2012-10-17'
+        Statement:
+          - Effect: Allow
+            Principal:
+              Service:
+                - lambda.amazonaws.com
+            Action:
+              - sts:AssumeRole
+      ManagedPolicyArns:
+        - arn:aws:iam::aws:policy/service-role/AWSLambdaBasicExecutionRole
+        - arn:aws:iam::aws:policy/AmazonS3ReadOnlyAccess
+        - arn:aws:iam::aws:policy/AmazonBedrockFullAccess
+      RoleName: ByteBite-Lambda-Execution-role
+
+  S3Bucket:
+    Type: AWS::S3::Bucket
+    Properties:
+      BucketName: !Sub bytebite-${AWS::AccountId}
+
+  Api:
+    Type: AWS::Serverless::Api
+    Properties:
+      Name: !Sub
+        - ${ResourceName} From Stack ${AWS::StackName}
+        - ResourceName: Api
+      StageName: !Sub ${EnvironmentName}
+      DefinitionBody:
+        openapi: '3.0'
+        info: {}
+        paths:
+          /byteBite:
+            get:
+              x-amazon-apigateway-integration:
+                httpMethod: POST
+                type: aws_proxy
+                uri: !Sub arn:${AWS::Partition}:apigateway:${AWS::Region}:lambda:path/2015-03-31/functions/${byteBite.Arn}/invocations
+              responses: {}          
+      EndpointConfiguration: REGIONAL
+      TracingEnabled: true
+      Cors:
+        MaxAge: 5
+  byteBite:
+    Type: AWS::Serverless::Function
+    Properties:
+      Description: !Sub
+        - Stack ${AWS::StackName} Function ${ResourceName}
+        - ResourceName: byteBite
+      InlineCode: |
+        import json
+        def lambda_handler(event, context):
+            return {
+                'statusCode': 200,
+                'body': json.dumps('Hello from byteBite Lambda!')
+            }
+      Handler: index.lambda_handler
+      Runtime: python3.9
+      MemorySize: 3008
+      Timeout: 30
+      Tracing: Active
+      Role: !GetAtt LambdaExecutionRole.Arn
+      Environment:
+        Variables:
+          S3_BUCKET_NAME: !Ref S3Bucket
+      Events:
+        ApiGETbyteBite:
+          Type: Api
+          Properties:
+            Path: /byteBite
+            Method: GET
+            RestApiId: !Ref Api
+
+  byteBiteLogGroup:
+    Type: AWS::Logs::LogGroup
+    DeletionPolicy: Retain
+    Properties:
+      LogGroupName: !Sub /aws/lambda/${byteBite}
+  
+  

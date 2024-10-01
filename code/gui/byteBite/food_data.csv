@@ -1,0 +1,5 @@
+id,Food Name,Ingredients,Popular in Countries,Popular in Events,Popular in Weather,Food Temperature,Allergens,Dietary Preferences/Restrictions,Calories,Funfact/Inspiring Quote
+1,Pizza,"Dough, Cheese, Tomato, Pepperoni","Italy, USA","Parties, Family Gatherings",All Seasons,Hot,"Dairy, Gluten",Non-Vegetarian,285,The first pizza was made in Naples.
+2,Sushi,"Rice, Fish, Seaweed, Soy Sauce",Japan,"Business Meetings, Celebrations",Summer,Cold,"Fish, Soy",Pescatarian,200,Sushi originated as a method of preserving fish.
+3,Paella,"Rice, Seafood, Saffron, Vegetables",Spain,"Festivals, Family Gatherings",Summer,Hot,Shellfish,Pescatarian,300,Paella is traditionally cooked over an open fire.
+
