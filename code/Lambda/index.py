@@ -24,7 +24,24 @@ def process_image(source_img):
     
 
 # Claude-3 model body
-def model_body(base64_image, media_type, input_query):
+def model_body(input_query, base64_image=None, media_type=None):
+    content = [
+        {
+            "type": "text",
+            "text": input_query
+        }
+    ]
+    
+    if base64_image and media_type:
+        content.insert(0, {
+            "type": "image",
+            "source": {
+                "type": "base64",
+                "media_type": f"image/{media_type}",
+                "data": base64_image
+            }
+        })
+    
     body = json.dumps(
         {
             "anthropic_version": "bedrock-2023-05-31",
@@ -32,26 +49,13 @@ def model_body(base64_image, media_type, input_query):
             "messages": [
                 {
                     "role": "user",
-                    "content": [
-                        {
-                            "type": "image",
-                            "source": {
-                                "type": "base64",
-                                "media_type": "image/" + media_type,
-                                "data": base64_image
-                                }
-
-                            },
-                        {
-                            "type": "text",
-                            "text": input_query
-                        }
-                    ]
+                    "content": content
                 }
             ]
         }
     )
     return body
+
 
 # Bedrock inference function
 
@@ -68,20 +72,21 @@ def ask_bedrock(bedrock_model_id, model_body):
         return None
 
 def lambda_handler(event, context):
-    source_img = event['queryStringParameters']['source_img']
     input_query = event['queryStringParameters']['input_query']
-    media_type = source_img.split('/')[-1].split('.')[-1].lower()
+    source_img = event['queryStringParameters'].get('source_img')
     
-    # convert image to base64
-    base64_image = process_image(source_img)
-    
-    body = model_body(base64_image, media_type, input_query)
+    if source_img:
+        media_type = source_img.split('/')[-1].split('.')[-1].lower()
+        base64_image = process_image(source_img)
+        body = model_body(input_query, base64_image, media_type)
+    else:
+        body = model_body(input_query)
     
     response = ask_bedrock(bedrock_model_id, body)
     
     return {
         'statusCode': 200,
         'body': json.dumps(response)
-        
     }
+
     
