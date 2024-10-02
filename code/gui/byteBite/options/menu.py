@@ -2,8 +2,18 @@ import streamlit as st
 import pandas as pd
 import numpy as np
 import streamlit as st
-import matplotlib.pyplot as plt
 import numpy as np
+import boto3
+import requests
+
+# ask genAI model
+def ask_model(input_query):
+    api_gw_url = '<>'
+    url = api_gw_url
+    params = {'input_query': input_query}
+    response = requests.get(url, params)
+    return st.write(f"Assistant: {response.json()}")
+
 
 def menu():
    # Define options for dropdowns
@@ -16,7 +26,7 @@ def menu():
    non_alcoholic_beverages = ['Yes', 'No']
 
    # Layout with columns
-   left_column, right_column = st.columns([3, 1])  # Adjust the width ratio of columns
+   left_column, right_column = st.columns([2, 2])  # Adjust the width ratio of columns
 
    with left_column:
        st.write("Please fill in the details for your event below:")
@@ -38,14 +48,13 @@ def menu():
 
            total_budget = st.number_input("Total Budget", min_value=0.0, step=100.0)
 
-       if st.button("Personalized menu"):
-           st.write(f"I want to order food for **{event_name}** on **{event_date}** for **{number_of_guests}** guests. "
-                   f"This event is a **{event_type}**, and I would like to serve **{preferred_cuisine}** cuisine with **{meal_type}** style, "
-                   f"preferably in **{menu_style}**. There are **{', '.join(dietary_restriction) if dietary_restriction else 'no'}** dietary restrictions to consider, "
-                   f"and I’d like to include **{special_requests if special_requests else 'no special requests'}**. My budget for this event is **${total_budget}**.")
 
    with right_column:
        st.write("## Results")
-       # Placeholder for any additional results or actions
-       st.write("- Result 1")
-       st.write("- Result 2")
+       if st.button("Personalized menu"):
+           response = ask_model(f"I want to order food for **{event_name}** on **{event_date}** for **{number_of_guests}** guests. "
+                   f"This event is a **{event_type}**, and I would like to serve **{preferred_cuisine}** cuisine with **{meal_type}** style, "
+                   f"preferably in **{menu_style}**. There are **{', '.join(dietary_restriction) if dietary_restriction else 'no'}** dietary restrictions to consider, "
+                   f"and I’d like to include **{special_requests if special_requests else 'no special requests'}**. My budget for this event is **${total_budget}**. Give me food recomendation !")
+
+           
