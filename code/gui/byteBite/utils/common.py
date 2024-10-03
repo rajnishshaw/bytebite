@@ -6,20 +6,13 @@ api_gw_url = '<<API-URL>>'
 s3_bucket = '<<S3_BUCKET_NAME>>'
 s3_prefix = 'images/'
 
-
-
-# ask genAI model just text
-def ask_model(input_query):
-    api_gw_url = '<>'
-    url = api_gw_url
-    params = {'input_query': input_query}
-    response = requests.get(url, params)
-    return (f"Assistant: {response.json()}")
-
-# ask genAI model with Image
+# ask genAI model with Image/ Text
 def ask_model(source_img, input_query):
     url = api_gw_url
-    params = {'source_img': s3_prefix + source_img, 'input_query': input_query}
+    if source_img != None:
+        params = {'source_img': s3_prefix + source_img, 'input_query': input_query}
+    else:
+        params = {'input_query': input_query}
     response = requests.get(url, params)
     return (f"Assistant: {response.json()}")
 
