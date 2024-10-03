@@ -42,7 +42,7 @@ def menu():
    with right_column:
        if st.button("Personalized menu"):
            st.write("## Results")
-           st.write(ask_model(f"I want to order food for **{event_name}** on **{event_date}** for **{number_of_guests}** guests. "
+           st.write(ask_model(None,f"I want to order food for **{event_name}** on **{event_date}** for **{number_of_guests}** guests. "
                    f"This event is a **{event_type}**, and I would like to serve **{preferred_cuisine}** cuisine with **{meal_type}** style, "
                    f"preferably in **{menu_style}**. There are **{', '.join(dietary_restriction) if dietary_restriction else 'no'}** dietary restrictions to consider, "
                    f"and I’d like to include **{special_requests if special_requests else 'no special requests'}**. My budget for this event is **${total_budget}**. Give me food recomendation !"))
