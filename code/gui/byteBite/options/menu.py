@@ -3,17 +3,7 @@ import pandas as pd
 import numpy as np
 import streamlit as st
 import numpy as np
-import boto3
-import requests
-
-# ask genAI model
-def ask_model(input_query):
-    api_gw_url = '<>'
-    url = api_gw_url
-    params = {'input_query': input_query}
-    response = requests.get(url, params)
-    return st.write(f"Assistant: {response.json()}")
-
+from utils.common import ask_model
 
 def menu():
    # Define options for dropdowns
@@ -50,11 +40,11 @@ def menu():
 
 
    with right_column:
-       st.write("## Results")
        if st.button("Personalized menu"):
-           response = ask_model(f"I want to order food for **{event_name}** on **{event_date}** for **{number_of_guests}** guests. "
+           st.write("## Results")
+           st.write(ask_model(f"I want to order food for **{event_name}** on **{event_date}** for **{number_of_guests}** guests. "
                    f"This event is a **{event_type}**, and I would like to serve **{preferred_cuisine}** cuisine with **{meal_type}** style, "
                    f"preferably in **{menu_style}**. There are **{', '.join(dietary_restriction) if dietary_restriction else 'no'}** dietary restrictions to consider, "
-                   f"and I’d like to include **{special_requests if special_requests else 'no special requests'}**. My budget for this event is **${total_budget}**. Give me food recomendation !")
+                   f"and I’d like to include **{special_requests if special_requests else 'no special requests'}**. My budget for this event is **${total_budget}**. Give me food recomendation !"))
 
            
