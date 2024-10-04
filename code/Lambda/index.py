@@ -11,8 +11,9 @@ bedrock = boto3.client(service_name='bedrock-runtime')
 # s3 bucket name
 s3_bucket = os.environ['S3_BUCKET_NAME']
 # Bedrock model id
+#bedrock_model_id = 'anthropic.claude-3-5-sonnet-20240620-v1:0'
+#bedrock_model_id = 'anthropic.claude-3-opus-20240229-v1:0'
 bedrock_model_id = 'anthropic.claude-3-sonnet-20240229-v1:0'
-
 # process s3 object
 def process_image(source_img):
     s3 = boto3.client('s3')
@@ -46,6 +47,7 @@ def model_body(input_query, base64_image=None, media_type=None):
         {
             "anthropic_version": "bedrock-2023-05-31",
             "max_tokens": 1000,
+            "temperature": 0.2,
             "messages": [
                 {
                     "role": "user",
