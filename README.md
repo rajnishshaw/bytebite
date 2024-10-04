@@ -24,7 +24,7 @@ mkdir ByteBite && cd ByteBite
 Clone the GitRepo to your local machine.
 ```
 git clone https://github.com/rajnishshaw/bytebite.git
-cd ByteBite
+cd bytebite-main
 ```
 #### 2. AWS stack deployment
 * Login to your AWS account
