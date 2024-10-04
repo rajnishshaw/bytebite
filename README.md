@@ -46,41 +46,42 @@ cd ByteBite
 #### 5. Setup UI
 UI is based on streamlit. If your local laptop has AWS environment setup along with python, follow the steps below.
 * Install the following python modules
-  ```
+```
 pip install boto3
 pip install requests
 pip install streamlit
 pip install streamlit_option_menu
-  ```
+```
 * Go to /code/gui/byteBite/utils/common.py
 * Replace "<<S3_BUCKET_NAME>>" with S3 bucket name created by the cloudformation
-* Replace "<<API-URL>>" with API gateway end point created by the cloudformation
+* Replace "<< API-URL>>" with API gateway end point created by the cloudformation
 * Save the changes
+* Ensure your aws credentials are set environment variable 
 * Start the UI
-  ```
+```
   cd /code/gui/byteBite
   streamlit run app.py
-  ```
+```
 ##### Optional: Buidling front end on sagemaker studio
 * Login into your sagemaker studio. Go to Terminal
 * Ensure role has access to the S3 bucket that created part of the stack.
 * Install the following python modules
-  ```
+```
 pip install boto3
 pip install requests
 pip install streamlit
 pip install streamlit_option_menu
-  ```
+```
 * Upload the contents of frontEnd directory
 * Open file front_end_v7.py
 * Replace "<<S3_BUCKET_NAME>>" with S3 bucket name created by the cloudformation
-* Replace "<<API-URL>>" with API gateway end point created by the cloudformation
+* Replace "<< API-URL>>" with API gateway end point created by the cloudformation
 * Save the changes
 * Start the UI
-  ```
+```
 cd /code/gui/byteBite
   streamlit run app.py
-  ```
+```
 #### 6. Access UI
 If you are using your laptop for streamlit application, use https://localhost:8501.
 
@@ -94,6 +95,6 @@ For the Sagemaker studio setup,
 
 
 #### 7. Cleanup
-* Go to Sagemaker studio terminal window. <Ctrl>+C to kill the front_end_v7.py
+* Go to Sagemaker studio terminal window. < Ctrl>+C to kill the app.py
 * Go to AWS console, cloudformation, and delete the stack.
 
