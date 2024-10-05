@@ -5,7 +5,6 @@ Install the following python modules
 
 ## Description
 
-
 ## Getting Started
 ### Pre-requisites
 * AWS Account setup
@@ -57,7 +56,7 @@ pip install streamlit_option_menu
 * Replace "<< API-URL>>" with API gateway end point created by the cloudformation
 * Save the changes
 * Go to terminal , ensure your aws credentials are set in environment variable
-* '''
+'''
   export AWS_ACCESS_KEY_ID="<YOUR_AWS_ACCESS_KEY_ID>"
   export AWS_SECRET_ACCESS_KEY="<YOUR_AWS_SECRET_ACCESS_KEY>"
   export AWS_SESSION_TOKEN="<YOUR_AWS_SESSION_TOKEN>"
@@ -84,7 +83,7 @@ pip install streamlit_option_menu
 * Save the changes
 * Start the UI
 ```
-cd /code/gui/byteBite
+  cd /code/gui/byteBite
   streamlit run app.py
 ```
 #### 6. Access UI
