@@ -1,5 +1,27 @@
 id,Food Name,Ingredients,Popular in Countries,Popular in Events,Popular in Weather,Food Temperature,Allergens,Dietary Preferences/Restrictions,Calories,Funfact/Inspiring Quote
-1,Pizza,"Dough, Cheese, Tomato, Pepperoni","Italy, USA","Parties, Family Gatherings",All Seasons,Hot,"Dairy, Gluten",Non-Vegetarian,285,The first pizza was made in Naples.
-2,Sushi,"Rice, Fish, Seaweed, Soy Sauce",Japan,"Business Meetings, Celebrations",Summer,Cold,"Fish, Soy",Pescatarian,200,Sushi originated as a method of preserving fish.
-3,Paella,"Rice, Seafood, Saffron, Vegetables",Spain,"Festivals, Family Gatherings",Summer,Hot,Shellfish,Pescatarian,300,Paella is traditionally cooked over an open fire.
-
+0,Pizza,"Dough, Cheese, Tomato, Pepperoni","Italy, USA","Parties, Family Gatherings",All Seasons,Hot,"Dairy, Gluten",Non-Vegetarian,285,The first pizza was made in Naples.
+1,Sushi,"Rice, Fish, Seaweed, Soy Sauce",Japan,"Business Meetings, Celebrations",Summer,Cold,"Fish, Soy",Pescatarian,200,Sushi originated as a method of preserving fish.
+2,Paella,"Rice, Seafood, Saffron, Vegetables",Spain,"Festivals, Family Gatherings",Summer,Hot,Shellfish,Pescatarian,300,Paella is traditionally cooked over an open fire.
+3,Tacos,"Tortilla, Beef/Chicken, Lettuce, Cheese, Salsa",Mexico,"Casual Dining, Family Gatherings",All Seasons,Hot,"Dairy, Gluten",Non-Vegetarian,250,Tacos are believed to have originated in Mexico in the 18th century.
+4,Pad Thai,"Rice Noodles, Shrimp, Eggs, Bean Sprouts, Peanuts","Thailand, USA","Casual Dining, Takeout",All Seasons,Hot,"Peanuts, Shellfish, Eggs",Non-Vegetarian,400,Pad Thai is one of Thailand's national dishes.
+5,Lasagna,"Pasta, Ground Beef, Tomato Sauce, Cheese",Italy,"Family Gatherings, Holidays",Winter,Hot,"Dairy, Gluten",Non-Vegetarian,350,"Lasagna is thought to have originated in Naples, Italy."
+6,Tikka Masala,"Chicken, Tomato Sauce, Cream, Spices",India,"Casual Dining, Takeout",All Seasons,Hot,Dairy,Non-Vegetarian,450,Chicken Tikka Masala is one of the most popular Indian dishes in the UK.
+7,Falafel,"Chickpeas, Herbs, Spices",Lebanon,"Casual Dining, Street Food",All Seasons,Hot,Legumes,Vegan/Vegetarian,200,Falafel is a popular Middle Eastern street food.
+8,Pho,"Rice Noodles, Beef/Chicken Broth, Herbs",Vietnam,"Casual Dining, Street Food",Winter,Hot,,Non-Vegetarian,350,Pho is Vietnam's national dish.
+9,Fish and Chips,"Fried Cod/Haddock, French Fries, Tartar Sauce",UK,"Casual Dining, Takeout",All Seasons,Hot,"Fish, Gluten",Non-Vegetarian,500,Fish and Chips is a classic British dish.
+10,Burritos,"Tortilla, Rice, Beans, Meat/Vegetables, Cheese",Mexico,"Casual Dining, On-the-Go",All Seasons,Hot,"Dairy, Gluten",Non-Vegetarian/Vegetarian,400,Burritos originated in Mexico and became popular in the United States.
+11,Ramen,"Noodles, Broth, Meat/Vegetables, Egg",Japan,"Casual Dining, Street Food",Winter,Hot,"Eggs, Gluten",Non-Vegetarian,500,Ramen noodles were originally imported from China to Japan.
+12,Curry,"Meat/Vegetables, Coconut Milk, Spices",India,"Casual Dining, Takeout",All Seasons,Hot,,Non-Vegetarian/Vegetarian,400,Curry dishes vary greatly across different regions of India.
+13,Gyros,"Pita Bread, Meat, Vegetables, Tzatziki Sauce",Greece,"Casual Dining, Street Food",All Seasons,Hot,"Dairy, Gluten",Non-Vegetarian,350,The name 'gyros' comes from the Greek word for 'turn' or 'rotation'.
+14,Dim Sum,"Steamed Dumplings, Buns, Rolls",China,"Brunch, Casual Dining",All Seasons,Hot,"Gluten, Shellfish",Non-Vegetarian/Vegetarian,300,Dim Sum is a Cantonese cuisine tradition originating in Hong Kong.
+15,Ceviche,"Raw Fish, Citrus Juice, Vegetables",Peru,"Casual Dining, Celebrations",Summer,Cold,"Fish, Shellfish",Pescatarian,150,Ceviche is considered a national dish of Peru.
+16,Goulash,"Beef, Vegetables, Paprika",Hungary,"Family Gatherings, Festivals",Winter,Hot,,Non-Vegetarian,450,Goulash is a Hungarian stew dating back to the 9th century.
+17,Hummus,"Chickpeas, Tahini, Lemon, Garlic",Lebanon,"Appetizers, Mezze",All Seasons,Cold,Sesame Seeds,Vegan/Vegetarian,100,Hummus is a popular Middle Eastern dip and spread.
+18,Empanadas,"Dough, Meat/Vegetables, Spices",Argentina,"Casual Dining, Street Food",All Seasons,Hot,Gluten,Non-Vegetarian/Vegetarian,250,Empanadas are popular in many Latin American countries.
+19,Quiche,"Eggs, Cheese, Pastry Crust",France,"Brunch, Casual Dining",All Seasons,Hot,"Eggs, Dairy, Gluten",Non-Vegetarian,350,Quiche is a savory open-faced tart originating in France.
+20,Poutine,"French Fries, Cheese Curds, Gravy",Canada,"Casual Dining, Street Food",Winter,Hot,"Dairy, Gluten",Non-Vegetarian,500,Poutine is a classic Canadian dish.
+21,Mole Poblano,"Chocolate, Chili Peppers, Spices, Meat",Mexico,"Celebrations, Holidays",All Seasons,Hot,,Non-Vegetarian,400,Mole Poblano is a traditional Mexican sauce originating in Puebla.
+22,Jerk Chicken,"Chicken, Jerk Seasoning, Allspice, Scotch Bonnet Peppers",Jamaica,"Casual Dining, Festivals",All Seasons,Hot,,Non-Vegetarian,350,Jerk Chicken is a popular Caribbean dish originating in Jamaica.
+23,Baklava,"Phyllo Dough, Nuts, Honey Syrup",Turkey,"Desserts, Celebrations",All Seasons,Sweet,"Nuts, Gluten",Non-Vegetarian,300,"Baklava is a rich, sweet pastry made with layers of phyllo dough and nuts."
+24,Gnocchi,"Potato, Flour, Cheese, Tomato Sauce",Italy,"Casual Dining, Family Gatherings",All Seasons,Hot,"Dairy, Gluten",Non-Vegetarian,300,"Gnocchi are thick, soft dumplings made from potatoes."
+25,Chow Mein,"Noodles, Vegetables, Meat, Soy Sauce",China,"Casual Dining, Takeout",All Seasons,Hot,"Gluten, Soy",Non-Vegetarian/Vegetarian,400,Chow Mein is a popular Chinese stir-fried noodle dish.
