@@ -56,7 +56,12 @@ pip install streamlit_option_menu
 * Replace "<<S3_BUCKET_NAME>>" with S3 bucket name created by the cloudformation
 * Replace "<< API-URL>>" with API gateway end point created by the cloudformation
 * Save the changes
-* Go to terminal , ensure your aws credentials are set in environment variable 
+* Go to terminal , ensure your aws credentials are set in environment variable
+* '''
+  export AWS_ACCESS_KEY_ID="<YOUR_AWS_ACCESS_KEY_ID>"
+  export AWS_SECRET_ACCESS_KEY="<YOUR_AWS_SECRET_ACCESS_KEY>"
+  export AWS_SESSION_TOKEN="<YOUR_AWS_SESSION_TOKEN>"
+'''
 * Start the UI
 ```
   cd /code/gui/byteBite
