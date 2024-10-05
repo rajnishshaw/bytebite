@@ -1,9 +1,20 @@
 import streamlit as st
-import pandas as pd
-import numpy as np
-import streamlit as st
-import numpy as np
 from utils.common import ask_model
+import csv
+
+
+def extract_text_from_text(file_path):
+    extracted_text = []
+    try:
+        with open(file_path, 'r', newline='', encoding='utf-8') as csvfile:
+            csv_reader = csv.reader(csvfile)
+            for row in csv_reader:
+                extracted_text.append(row)
+    except FileNotFoundError:
+        print(f"Error: The file '{file_path}' was not found.")
+    except csv.Error as e:
+        print(f"Error reading CSV file: {e}")
+    return extracted_text
 
 def menu():
    # Define options for dropdowns
@@ -39,14 +50,29 @@ def menu():
 
    with right_column:
        if st.button("Personalized menu"):
-           st.write((f"You are a helpful food event organizer and mindful about the budget and taste. Your task is to generate personalized recipe ideas based on the context : I want to order food for **{event_name}** on **{event_date}** for **{number_of_guests}** guests. "
-                   f"This event is a **{event_type}**, and I would like to serve **{preferred_cuisine}** cuisine with **{meal_type}** style, "
-                   f"preferably in **{menu_style}**. There are **{', '.join(dietary_restriction) if dietary_restriction else 'no'}** dietary restrictions to consider, "
-                   f"and I’d like to include **{special_requests if special_requests else 'no special requests'}**. My budget for this event is **${total_budget}**. Give me menu recomendation and justify your selection for each item !. The response should be in table format with columns : Dish type, Item Name, Cost, Justification."))
-
-           st.write(ask_model(None,f"You are a helpful food event organizer and mindful about the budget and taste. Your task is to generate personalized recipe ideas based on the context : I want to order food for **{event_name}** on **{event_date}** for **{number_of_guests}** guests. "
-                   f"This event is a **{event_type}**, and I would like to serve **{preferred_cuisine}** cuisine with **{meal_type}** style, "
-                   f"preferably in **{menu_style}**. There are **{', '.join(dietary_restriction) if dietary_restriction else 'no'}** dietary restrictions to consider, "
-                   f"and I’d like to include **{special_requests if special_requests else 'no special requests'}**. My budget for this event is **${total_budget}**. Give me menu recomendation and justify your selection for each item !. The response should be in table format with columns : Dish type, Item Name, Cost, Justification."))
+           extract_text = extract_text_from_text('food_data.csv')
+           st.write((f"You are a skilled food event organizer, attentive to both budget and taste. Your task is to craft personalized menu recommendations based on the following context:"
+                    f"Event Type: **{event_type}**"
+                    f"Date: **{event_date}**"
+                    f"Guests: **{number_of_guests}**"
+                    f"Cuisine Preference: **{meal_type}**"
+                    f"Serving Style: {menu_style}"
+                    f"Dietary Restrictions: **{', '.join(dietary_restriction) if dietary_restriction else 'no'}**"
+                    f"Special Requests: **{special_requests if special_requests else 'no special requests'}"
+                    f"Budget: **${total_budget}**"
+                    f"Using the provided menu data, generate a menu recommendation in table format with the following columns: Dish Type, Item Name, Cost, Justification. Ensure your selections align with the event's theme and budget."))
+                            
+           st.write(ask_model(None,(f"You are a skilled food event organizer, attentive to both budget and taste. Your task is to craft personalized menu recommendations based on the following context:"
+                    f"Event Type: **{event_type}**"
+                    f"Date: **{event_date}**"
+                    f"Guests: **{number_of_guests}**"
+                    f"Cuisine Preference: **{meal_type}**"
+                    f"Serving Style: {menu_style}"
+                    f"Dietary Restrictions: **{', '.join(dietary_restriction) if dietary_restriction else 'no'}**"
+                    f"Special Requests: **{special_requests if special_requests else 'no special requests'}"
+                    f"Budget: **${total_budget}**"
+                    f"Using the provided menu data, generate a menu recommendation in table format with the following columns: Dish Type, Item Name, Cost, Justification. Ensure your selections align with the event's theme and budget. Menu Data:\n\n {extract_text}")))
 
            
+
+
