@@ -52,25 +52,25 @@ def menu():
        if st.button("Personalized menu"):
            extract_text = extract_text_from_text('food_data.csv')
            st.write((f"You are a skilled food event organizer, attentive to both budget and taste. Your task is to craft personalized menu recommendations based on the following context:"
-                    f"Event Type: **{event_type}**"
-                    f"Date: **{event_date}**"
-                    f"Guests: **{number_of_guests}**"
-                    f"Cuisine Preference: **{meal_type}**"
-                    f"Serving Style: {menu_style}"
-                    f"Dietary Restrictions: **{', '.join(dietary_restriction) if dietary_restriction else 'no'}**"
-                    f"Special Requests: **{special_requests if special_requests else 'no special requests'}"
-                    f"Budget: **${total_budget}**"
+                    f" Event Type: **{event_type}**"
+                    f" Date: **{event_date}**"
+                    f" Guests: **{number_of_guests}**"
+                    f" Cuisine Preference: **{meal_type}**"
+                    f" Serving Style: {menu_style}"
+                    f" Dietary Restrictions: **{', '.join(dietary_restriction) if dietary_restriction else 'no'}**"
+                    f" Special Requests: **{special_requests if special_requests else 'no special requests'}"
+                    f" Total : **${total_budget}**"
                     f"Using the provided menu data, generate a menu recommendation in table format with the following columns: Dish Type, Item Name, Cost, Justification. Ensure your selections align with the event's theme and budget."))
                             
            st.write(ask_model(None,(f"You are a skilled food event organizer, attentive to both budget and taste. Your task is to craft personalized menu recommendations based on the following context:"
-                    f"Event Type: **{event_type}**"
-                    f"Date: **{event_date}**"
-                    f"Guests: **{number_of_guests}**"
-                    f"Cuisine Preference: **{meal_type}**"
-                    f"Serving Style: {menu_style}"
-                    f"Dietary Restrictions: **{', '.join(dietary_restriction) if dietary_restriction else 'no'}**"
-                    f"Special Requests: **{special_requests if special_requests else 'no special requests'}"
-                    f"Budget: **${total_budget}**"
+                    f" Event Type: **{event_type}**"
+                    f" Date: **{event_date}**"
+                    f" Guests: **{number_of_guests}**"
+                    f" Cuisine Preference: **{meal_type}**"
+                    f" Serving Style: {menu_style}"
+                    f" Dietary Restrictions: **{', '.join(dietary_restriction) if dietary_restriction else 'no'}**"
+                    f" Special Requests: **{special_requests if special_requests else 'no special requests'}"
+                    f" Total Budget: **${total_budget}**"
                     f"Using the provided menu data, generate a menu recommendation in table format with the following columns: Dish Type, Item Name, Cost, Justification. Ensure your selections align with the event's theme and budget. Menu Data:\n\n {extract_text}")))
 
            
