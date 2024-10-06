@@ -1,9 +1,12 @@
-# GenAI-CaterAssistant (Bytebite )
-
-Install the following python modules
-
+# Visual-RAG-Catering-System-Claude3 (Bytebite )
 
 ## Description
+This repository is to showcase how Generative AI technologies can transform the catering industry. By integrating Amazon Bedrock’s Claude 3’s powerful visual analysis capabilities with Retrieval-Augmented Generation (RAG), the code provides a smart solution for managing catering orders more efficiently. Whether it’s analyzing images of dishes to identify ingredients and potential allergens or offering personalized menu recommendations based on client preferences and dietary restrictions, this project demonstrates practical applications of AI in streamlining operations. This repository contains experimental code to showcase how AI can transform catering businesses. It may require additional refinement and testing before being suitable for production use.
+
+![Request](./architecture/process.png)
+
+## Architecture
+![Request](./architecture/architecture.png)
 
 ## Getting Started
 ### Pre-requisites
