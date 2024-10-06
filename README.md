@@ -67,7 +67,7 @@ export AWS_SESSION_TOKEN="<YOUR_AWS_SESSION_TOKEN>"
 ```
 * Start the UI
 ```sh
-  cd /code/gui/byteBite
+  cd ./code/gui/byteBite
   streamlit run app.py
 ```
 ##### Optional: Buidling front end on sagemaker studio
@@ -87,7 +87,7 @@ pip install streamlit_option_menu
 * Save the changes
 * Start the UI
 ```sh
-  cd /code/gui/byteBite
+  cd ./code/gui/byteBite
   streamlit run app.py
 ```
 #### 6. Access UI
