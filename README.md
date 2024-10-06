@@ -16,12 +16,13 @@ Install the following python modules
 
 Create a folder names "ByteBite"
 
-```
-mkdir ByteBite && cd ByteBite
+```sh
+mkdir ByteBite 
+cd ByteBite
 
 ```
 Clone the GitRepo to your local machine.
-```
+```sh
 git clone https://github.com/rajnishshaw/bytebite.git
 cd bytebite-main
 ```
@@ -45,7 +46,7 @@ cd bytebite-main
 #### 5. Setup UI
 UI is based on streamlit. If your local laptop has AWS environment setup along with python, follow the steps below.
 * Install the following python modules
-```
+```sh
 pip install boto3
 pip install requests
 pip install streamlit
@@ -56,13 +57,13 @@ pip install streamlit_option_menu
 * Replace "<< API-URL>>" with API gateway end point created by the cloudformation
 * Save the changes
 * Go to terminal , ensure your aws credentials are set in environment variable
-'''
-  export AWS_ACCESS_KEY_ID="<YOUR_AWS_ACCESS_KEY_ID>"
-  export AWS_SECRET_ACCESS_KEY="<YOUR_AWS_SECRET_ACCESS_KEY>"
-  export AWS_SESSION_TOKEN="<YOUR_AWS_SESSION_TOKEN>"
-'''
-* Start the UI
+```sh
+export AWS_ACCESS_KEY_ID="<YOUR_AWS_ACCESS_KEY_ID>"
+export AWS_SECRET_ACCESS_KEY="<YOUR_AWS_SECRET_ACCESS_KEY>"
+export AWS_SESSION_TOKEN="<YOUR_AWS_SESSION_TOKEN>"
 ```
+* Start the UI
+```sh
   cd /code/gui/byteBite
   streamlit run app.py
 ```
@@ -70,7 +71,7 @@ pip install streamlit_option_menu
 * Login into your sagemaker studio. Go to Terminal
 * Ensure role has access to the S3 bucket that created part of the stack.
 * Install the following python modules
-```
+```sh
 pip install boto3
 pip install requests
 pip install streamlit
@@ -82,7 +83,7 @@ pip install streamlit_option_menu
 * Replace "<< API-URL>>" with API gateway end point created by the cloudformation
 * Save the changes
 * Start the UI
-```
+```sh
   cd /code/gui/byteBite
   streamlit run app.py
 ```
