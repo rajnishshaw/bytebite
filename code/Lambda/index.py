@@ -29,14 +29,13 @@ def process_csv(source_csv):
     s3 = boto3.client('s3')
     response = s3.get_object(Bucket=s3_bucket, Key=source_csv)
     csv_content = response['Body'].read().decode('utf-8')
-    
     # Process CSV content
     csv_data = []
     csv_reader = csv.DictReader(io.StringIO(csv_content))
     for row in csv_reader:
         csv_data.append(row)
     
-    print("csv_data")
+    # print("csv_data")
     return csv_data
 
     
@@ -61,6 +60,7 @@ def model_body(input_query, base64_image=None, media_type=None):
         })
     elif base64_image and media_type in ['csv']:
         print("Attaching csv content")
+        #WIP code, in case you want to upload the csv file directly to Bedrock
         '''content.insert(0, {
             "type": "document",
             "attrs": {
@@ -104,7 +104,6 @@ def lambda_handler(event, context):
     input_query = event['queryStringParameters']['input_query']
     source_img = event['queryStringParameters'].get('source_img')
 
-    
     if source_img:
         media_type = source_img.split('/')[-1].split('.')[-1].lower()
         if media_type in ['jpg', 'jpeg', 'png', 'gif']:
@@ -116,15 +115,12 @@ def lambda_handler(event, context):
             print("csv")
             print(source_img)
             print("--------")
+            #WIP code, in case you want to upload the csv file directly to Bedrock
             base64_image = process_csv(source_img)
             print("CSV processed")
             
-            
-        #print(input_query)
-        #print(media_type)
-        #print(base64_image)
+
         body = model_body(input_query, base64_image, media_type)
-        #body = model_body(input_query)
     else:
         body = model_body(input_query)
     
