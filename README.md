@@ -6,7 +6,7 @@ This repository is to showcase how Generative AI technologies can transform the 
 ![Request](./architecture/process.png)
 
 ## Architecture
-![Request](./architecture/architecture.png)
+
 
 ## Getting Started
 ### Pre-requisites
